@@ -16,5 +16,4 @@ public interface RvTree {
     int getImageResId();
 
     Integer getTitleColor();
-
 }
