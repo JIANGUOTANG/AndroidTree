@@ -14,4 +14,5 @@ public interface RvTree {
     String getTitle();
 
     int getImageResId();
+    int getTitleColor();
 }

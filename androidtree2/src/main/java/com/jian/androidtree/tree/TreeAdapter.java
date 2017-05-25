@@ -1,6 +1,7 @@
 package com.jian.androidtree.tree;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +72,7 @@ public class TreeAdapter<T extends RvTree> extends RecyclerView.Adapter<TreeAdap
             this.detail.setOnClickListener(this);
             itemView.setTag(Long.valueOf(System.currentTimeMillis()));
         }
-
+        private Integer titleColor = Color.BLACK;
         private void setControl(Node node) {
             this.node = node;
             this.title.setText(node.getName());
@@ -79,6 +80,11 @@ public class TreeAdapter<T extends RvTree> extends RecyclerView.Adapter<TreeAdap
             this.detail.setImageResource(node.getResId());
             if(node.isLeaf()) {
                 this.icon.setImageResource(0);
+                if(node.getTitleColor()!=null){
+                    titleColor = node.getTitleColor();
+                }
+                this.title.setTextColor(titleColor);
+
             } else {
                 int rotateDegree = node.isExpand()?90:0;
                 this.icon.setRotation(0.0F);
@@ -92,6 +98,7 @@ public class TreeAdapter<T extends RvTree> extends RecyclerView.Adapter<TreeAdap
             if(this.node.isLeaf()){
                 if(TreeAdapter.this.mListener != null) {
                     TreeAdapter.this.mListener.OnClick(this.node);
+
                 }
 
             } else {

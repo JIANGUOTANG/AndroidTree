@@ -55,6 +55,7 @@ public class TreeHelper {
             node.setpId(item.getPid());
             node.setLevel(item.getLevel());
             node.setName(item.getTitle());
+            node.setTitleColor(item.getTitleColor());
             node.setResId(item.getImageResId());
             list.add(node);
         }

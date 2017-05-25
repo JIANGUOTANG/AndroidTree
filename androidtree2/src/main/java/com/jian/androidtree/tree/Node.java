@@ -17,6 +17,15 @@ public class Node {
     private List<Node> children = new ArrayList();
     private Node parent;
     private int resId;
+    private Integer titleColor;
+
+    public Integer getTitleColor() {
+        return titleColor;
+    }
+
+    public void setTitleColor(Integer titleColor) {
+        this.titleColor = titleColor;
+    }
 
     public Node() {
     }
